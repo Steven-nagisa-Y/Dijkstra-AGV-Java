@@ -36,12 +36,13 @@ class AGV {
 }
 
 public class Main {
+    public static final int MAX_TIME = 100;
 
     public static void main(String[] args) {
         Graph graph = new Graph();
         try {
             // 读取输入文件
-            Scanner scanner = new Scanner(new File("data1.txt"));
+            Scanner scanner = new Scanner(new File("data.txt"));
             int n = scanner.nextInt(); // 顶点数
             int m = scanner.nextInt(); // 边数
             graph = new Graph(n, m);
@@ -84,7 +85,7 @@ public class Main {
         while (agv1.cur != agv1.end || agv2.cur != agv2.end) {
             time++;
             // 超时退出
-            if (time > 100)
+            if (time > MAX_TIME)
                 break;
             // AGV1无路径且未到达终点
             if (agvPath1 == null && agv1.cur != agv1.end) {
