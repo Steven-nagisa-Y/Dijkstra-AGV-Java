@@ -115,17 +115,17 @@ public class Main {
                 System.out.println("AGV1与AGV2路径冲突，AGV2等待：");
                 dist1 += getDist(graph, agv1.cur, next1);
                 agv1.cur = next1;
-                agvPath1 = dijkstra(graph, agv1);
+                agvPath1 = new ArrayList<Integer>(agvPath1.subList(1, agvPath1.size()));
             } else {
                 if (next1 != -1) {
                     dist1 += getDist(graph, agv1.cur, next1);
                     agv1.cur = next1;
-                    agvPath1 = dijkstra(graph, agv1);
+                    agvPath1 = new ArrayList<Integer>(agvPath1.subList(1, agvPath1.size()));
                 }
                 if (next2 != -1) {
                     dist2 += getDist(graph, agv2.cur, next2);
                     agv2.cur = next2;
-                    agvPath2 = dijkstra(graph, agv2);
+                    agvPath2 = new ArrayList<Integer>(agvPath2.subList(1, agvPath2.size()));
                 }
             }
         }
